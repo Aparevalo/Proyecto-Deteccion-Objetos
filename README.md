@@ -10,8 +10,7 @@ Este proyecto es una aplicación Flutter para crear usuarios mediante una solici
 
 1. **Clonar el Repositorio**
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
-   cd tu_repositorio
+   git clone https://github.com/Aparevalo/Proyecto-Deteccion-Objetos.git
    ```
 
 2. **Instalar Dependencias**
@@ -33,7 +32,7 @@ Asegúrate de tener un servidor PHP en tu máquina y ajusta la URL en el archivo
 
 
 ```dart
-Uri.parse('http://tu_direccion_ip:puerto/ruta_al_script_php')
+Uri.parse('http://tu_direccion_ip:puerto/ruta/rest/create_user.php')
 ```
 
 ### Dependencias Utilizadas
@@ -65,7 +64,7 @@ Estos servidores simplifican la configuración del entorno de desarrollo y facil
    $servername = "tu_servidor_mysql";
    $username = "tu_usuario_mysql";
    $password = "tu_contraseña_mysql";
-   $database = "tu_base_de_datos";
+   $database = "prueba_flutter";
 
    $conn = new mysqli($servername, $username, $password, $database);
 
@@ -75,7 +74,7 @@ Estos servidores simplifican la configuración del entorno de desarrollo y facil
 
    ?>
    ```
-   Asegúrate de reemplazar `tu_servidor_mysql`, `tu_usuario_mysql`, `tu_contraseña_mysql` y `tu_base_de_datos` con la información correcta de tu entorno.
+   Asegúrate de reemplazar `tu_servidor_mysql`, `tu_usuario_mysql` y `tu_contraseña_mysql`con la información correcta de tu entorno.
 
 #### Configuración de la Base de Datos
 
