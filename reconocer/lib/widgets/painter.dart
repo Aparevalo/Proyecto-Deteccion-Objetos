@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoginFivePainter extends CustomPainter {
+class Painter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Rect rect = new Rect.fromCircle(center: Offset(150.0, 50.0), radius: 180);
@@ -33,52 +33,13 @@ class LoginFivePainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
 
-class _BottomLoginFivePainter extends CustomPainter
-{
-  @override
-  void paint(Canvas canvas, Size size) {
-
-    final Rect rect = new Rect.fromCircle(center: Offset(150.0, 50.0), radius: 180);
-
-    final Gradient gradient = new LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-      colors: [
-        Color(0xff149e8e),
-        Color(0xff36ea7d)
-      ]
-    );
 
 
-    final paint = new Paint().. shader = gradient.createShader(rect);
-    paint.style = PaintingStyle.fill;
-    paint.strokeWidth = 5;
-
-    final path = new Path();
-    path.moveTo(0, size.height);
-    path.lineTo( 0, size.height * .8);   
-    path.quadraticBezierTo( size.width * .15 , size.height * .7, size.width * .45 , size.height * .73 );
-    path.quadraticBezierTo( size.width * .6 , size.height * .75, size.width * .65 , size.height * .65 );
-    path.quadraticBezierTo( size.width * .68 , size.height * .6, size.width * .85 , size.height * .6 );
-    path.quadraticBezierTo( size.width * .98 , size.height * .61, size.width , size.height * .57 );
-    path.lineTo( size.width, size.height);   
-    
-   
-
-   
-
-    canvas.drawPath(path, paint);
-  }
-  
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
-
-}
 
 
 // Bottom Register
 
-class BottomRegisterFivePainter extends CustomPainter
+class BottomPainter extends CustomPainter
 {
   @override
   void paint(Canvas canvas, Size size) {

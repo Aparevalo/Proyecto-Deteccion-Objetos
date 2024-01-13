@@ -1,13 +1,13 @@
 // userOperations.dart
 import 'package:flutter/material.dart';
-import 'package:reconocer/modelo/userModel.dart';
+import 'package:reconocer/modelo/personaModel.dart';
 import 'package:reconocer/rest/createUserRest.dart';
 import 'userFormFields.dart';
 
 class UserOperations {
   static Future<void> createUser(BuildContext context, GlobalKey<FormState> formKey, UserFormFields formFields) async {
     if (formKey.currentState!.validate()) {
-      UserModel user = UserModel(
+      PersonaModel user = PersonaModel(
         nombre: formFields.nombreController.text,
         apellido: formFields.apellidoController.text,
         telefono: formFields.telefonoController.text,
@@ -24,6 +24,7 @@ class UserOperations {
           if (success) {
 
             _showAlert(context, 'Éxito', 'Usuario creado con éxito', Colors.green);
+            Navigator.pushReplacementNamed(context, '/login');
           } else {
             _showAlert(context, 'Error', 'Error al crear el usuario', Colors.red);
           }

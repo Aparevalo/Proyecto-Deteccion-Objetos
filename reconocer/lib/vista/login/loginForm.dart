@@ -1,15 +1,16 @@
+// loginUserForm.dart
 import 'package:flutter/material.dart';
-import 'userFormFields.dart';
-import 'userFormOperations.dart';
+import 'loginFormFields.dart';
+import 'loginFormOperations.dart';
 import 'package:reconocer/widgets/painter.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
-class CreateUserForm extends StatefulWidget {
+class LoginUserForm extends StatefulWidget {
   @override
-  _CreateUserFormState createState() => _CreateUserFormState();
+  _LoginUserFormState createState() => _LoginUserFormState();
 }
 
-class _CreateUserFormState extends State<CreateUserForm> {
+class _LoginUserFormState extends State<LoginUserForm> {
   final UserFormFields formFields = UserFormFields();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool isVisible = false;
@@ -58,7 +59,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                           return isVisible
                               ? Container()
                               : Text(
-                                  'Registrarse',
+                                  'Iniciar Sesión',
                                   style: TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
@@ -72,28 +73,13 @@ class _CreateUserFormState extends State<CreateUserForm> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            formFields.buildNameField(),
-                            formFields.buildLastNameField(),
-                            formFields.buildPhoneField(),
                             formFields.buildEmailField(),
                             formFields.buildPasswordField(),
                             SizedBox(height: 12),
                             ElevatedButton(
-                              onPressed: () => UserOperations.createUser(context, _formKey, formFields),
-                              child: Text('Crear Usuario'),
-                            ),
-                            SizedBox(height: 12),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(context, '/login');
-                              },
-                              child: Text(
-                                '¿Ya tienes una cuenta? Inicia sesión aquí',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
+                              onPressed: () =>
+                                  UserOperations.loginUser(context, _formKey, formFields),
+                              child: Text('Iniciar Sesión'),
                             ),
                           ],
                         ),
