@@ -28,7 +28,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         body: Stack(
           children: [
             CustomPaint(
@@ -66,7 +66,6 @@ class _CreateUserFormState extends State<CreateUserForm> {
                                 );
                         },
                       ),
-                      SizedBox(height: isVisible ? 12 : 0),
                       Form(
                         key: _formKey,
                         child: Column(

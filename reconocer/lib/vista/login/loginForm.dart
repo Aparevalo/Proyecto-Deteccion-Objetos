@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'loginFormFields.dart';
 import 'loginFormOperations.dart';
 import 'package:reconocer/widgets/painter.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 class LoginUserForm extends StatefulWidget {
   @override
@@ -11,25 +10,14 @@ class LoginUserForm extends StatefulWidget {
 }
 
 class _LoginUserFormState extends State<LoginUserForm> {
-  final UserFormFields formFields = UserFormFields();
+  final LoginUserFormFields formFields = LoginUserFormFields();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  bool isVisible = false;
-
-  @override
-  void initState() {
-    super.initState();
-    KeyboardVisibilityController().onChange.listen((bool visible) {
-      setState(() {
-        isVisible = visible;
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         body: Stack(
           children: [
             CustomPaint(
@@ -54,20 +42,14 @@ class _LoginUserFormState extends State<LoginUserForm> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      KeyboardVisibilityBuilder(
-                        builder: (context, _isVisible) {
-                          return isVisible
-                              ? Container()
-                              : Text(
-                                  'Iniciar Sesión',
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                );
-                        },
+                      Text(
+                        'Iniciar Sesión',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      SizedBox(height: isVisible ? 12 : 0),
+                      SizedBox(height: 12),
                       Form(
                         key: _formKey,
                         child: Column(
@@ -78,7 +60,7 @@ class _LoginUserFormState extends State<LoginUserForm> {
                             SizedBox(height: 12),
                             ElevatedButton(
                               onPressed: () =>
-                                  UserOperations.loginUser(context, _formKey, formFields),
+                                  LoginUserOperations.loginUser(context, _formKey, formFields),
                               child: Text('Iniciar Sesión'),
                             ),
                           ],

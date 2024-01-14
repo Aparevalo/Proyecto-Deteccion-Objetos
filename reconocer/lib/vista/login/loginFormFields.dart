@@ -1,7 +1,7 @@
 // form_fields.dart
 import 'package:flutter/material.dart';
 
-class UserFormFields {
+class LoginUserFormFields {
   
   final TextEditingController emailController = TextEditingController();
   final TextEditingController contrasenaController = TextEditingController();

@@ -4,8 +4,8 @@ import 'package:reconocer/modelo/userModel.dart';
 import 'package:reconocer/rest/loginRest.dart';
 import 'loginFormFields.dart';
 
-class UserOperations {
-  static Future<void> loginUser(BuildContext context, GlobalKey<FormState> formKey, UserFormFields formFields) async {
+class LoginUserOperations {
+  static Future<void> loginUser(BuildContext context, GlobalKey<FormState> formKey, LoginUserFormFields formFields) async {
     if (formKey.currentState!.validate()) {
       UserModel user = UserModel(
         email: formFields.emailController.text,
@@ -13,14 +13,26 @@ class UserOperations {
       );
 
       AuthService controller = AuthService();
-      bool success = await controller.login(user);
+      bool verificarCorreo = await controller.verificarCorreo(user.email);
+      bool verificarContrasena = await controller.verificarContrasena(user);
       
-      if (success) {
+      if(!verificarCorreo){
+        if(verificarContrasena){
+          bool success = await controller.login(verificarContrasena);
+          if (success) {
         // Navegar a la pantalla de inicio después de iniciar sesión exitosamente
-        Navigator.pushReplacementNamed(context, '/home');
-      } else {
-        _showAlert(context, 'Error', 'Error al iniciar sesión', Colors.red);
+            Navigator.pushReplacementNamed(context, '/home');
+          } else {
+            _showAlert(context, 'Error', 'Error al iniciar sesión', Colors.red);
+          }
+        }else{
+          _showAlert(context, 'Error', 'Contrasena Incorrecta', Colors.red);
+        }
+      }else{
+          _showAlert(context, 'Error', 'Correo no registrado', Colors.red);
       }
+         
+     
     }
   }
 
