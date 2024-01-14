@@ -3,11 +3,11 @@
 class User {
     private $email;
     private $contrasena;
-	private $salt;
     private $nivel;
+	private $salt;
 	private $id_persona;
 
-    public function __construct($email, $contrasena, $nivel, $salt ,$id_persona) {
+    public function __construct($email, $contrasena, $salt, $nivel ,$id_persona) {
         $this->email = $email;
         $this->contrasena = $contrasena;
         $this->salt = $salt;
@@ -15,11 +15,6 @@ class User {
 		$this->id_persona = $id_persona;
     }
 
-
-	/*Getters and Setters*/
-	
-
-	
 
 	/*Funciones SQL*/
 
