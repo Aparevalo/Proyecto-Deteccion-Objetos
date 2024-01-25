@@ -1,8 +1,8 @@
-// userOperations.dart
 import 'package:flutter/material.dart';
 import 'package:reconocer/modelo/personaModel.dart';
 import 'package:reconocer/rest/createUserRest.dart';
 import 'userFormFields.dart';
+import 'package:reconocer/widgets/alertDialog.dart';
 
 class UserOperations {
   static Future<void> createUser(BuildContext context, GlobalKey<FormState> formKey, UserFormFields formFields) async {
@@ -23,38 +23,19 @@ class UserOperations {
           bool success = await controller.createUser(user);
           if (success) {
 
-            _showAlert(context, 'Éxito', 'Usuario creado con éxito', Colors.green);
+            CustomAlertDialog.showAlert(context, 'Éxito', 'Usuario creado con éxito', Colors.green);
             Navigator.pushReplacementNamed(context, '/login');
           } else {
-            _showAlert(context, 'Error', 'Error al crear el usuario', Colors.red);
+           CustomAlertDialog.showAlert(context, 'Error', 'Error al crear el usuario', Colors.red);
           }
         }else {
-          _showAlert(context, 'Error', 'El telefono ya está registrado', Colors.red);
+         CustomAlertDialog.showAlert(context, 'Error', 'El telefono ya está registrado', Colors.red);
         }  
       } else {
-        _showAlert(context, 'Error', 'El correo ya está registrado', Colors.red);
+        CustomAlertDialog.showAlert(context, 'Error', 'El correo ya está registrado', Colors.red);
       }
     }
   }
 
-  static void _showAlert(BuildContext context, String title, String message, Color color) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          content: Text(message),
-          backgroundColor: color,
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  
 }

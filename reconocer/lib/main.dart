@@ -5,6 +5,7 @@ import 'package:reconocer/vista/createUser/createUserForm.dart';
 import 'package:reconocer/vista/login/loginForm.dart';
 import 'package:reconocer/vista/homePage/homePage.dart';
 
+
 void main() {
   runApp(
     MultiProvider(
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
         '/registro': (context) => CreateUserForm(),
         '/login': (context) => LoginUserForm(),
         '/home': (context) => HomeScreen(),
+          
+        
+        
       },
     );
   }
