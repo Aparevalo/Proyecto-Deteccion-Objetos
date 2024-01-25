@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:reconocer/helper/image_classification_helper.dart';
+import 'package:reconocer/widgets/helper/image_classification_helper.dart';
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({

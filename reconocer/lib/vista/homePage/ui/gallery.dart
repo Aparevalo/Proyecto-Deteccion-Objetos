@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
-import 'package:reconocer/helper/image_classification_helper.dart';
+import 'package:reconocer/widgets/helper/image_classification_helper.dart';
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});

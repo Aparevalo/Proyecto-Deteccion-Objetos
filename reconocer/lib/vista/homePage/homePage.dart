@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reconocer/modelo/loginModel.dart';
 import 'package:reconocer/rest/loginRest.dart';
-import 'package:reconocer/ui/camera.dart';
-import 'package:reconocer/ui/gallery.dart';
+import 'package:reconocer/vista/homePage/ui/camera.dart';
+import 'package:reconocer/vista/homePage/ui/gallery.dart';
 import 'package:camera/camera.dart';
 
 
