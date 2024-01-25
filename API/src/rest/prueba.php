@@ -19,11 +19,11 @@ try {
     $mail->Port       = 587;
 
     // Resto de la configuración del correo
-    $mail->setFrom('and_are100@hotmail.es', 'Tu Nombre');
-    $mail->addAddress('ap761324@gmail.com', 'Anthonela');
+    $mail->setFrom('and_are100@hotmail.es', 'Tu Nombre');//No tocar
+    $mail->addAddress('and.are100@gmail.com', 'Anderson');//Su correo y el nombre
 
-    $mail->Subject = 'Eres puta';
-    $mail->Body    = 'Mñana trabajas en el extasis';
+    $mail->Subject = 'Prueba Api';//Asunto
+    $mail->Body    = 'Prueba Exitosa';//Contenido
 
     $mail->send();
     echo 'El correo ha sido enviado correctamente';

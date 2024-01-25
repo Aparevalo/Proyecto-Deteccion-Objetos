@@ -24,6 +24,7 @@ class User {
 		return $query;
 	}
 
+	//las cosas absolutas no se toca -> array no se modifica
 	public function update($id) {
 		$query = "UPDATE usuarios SET email = '$this->email', contrasena = '$this->contrasena' WHERE id = $id";
 		return $query; 

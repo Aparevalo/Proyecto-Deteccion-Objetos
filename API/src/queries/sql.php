@@ -2,7 +2,7 @@
 
 	require_once '../modelo/persona.php';
 	require_once '../modelo/user.php';
-	
+	require_once '../modelo/imagen.php';
 
 	
 	function verificarCorreo(mysqli $conn, $email) {
@@ -19,7 +19,7 @@
 		}
 	}
 	
-	
+
 	function verificarTelefono(mysqli $conn, $telefono) {
 		// Obtener el correo electrónico de la base de datos
 		$query = "SELECT telefono FROM personas WHERE telefono = '$telefono' LIMIT 1";
@@ -93,7 +93,39 @@
 	
 	
 	
-	 
+	function buscarIdUsuario(mysqli $conn, $email){
+
+		$query = "SELECT id FROM usuarios WHERE email = '$email' LIMIT 1";
+		$result = $conn->query($query);
+
+		if ($result->num_rows > 0) {
+			$row = $result->fetch_assoc();
+        	$idUser = $row['id'];
+			return $idUser;
+		} else {
+			// El correo electrónico no existe en la base de datos
+			return false;
+		}
+	}
+
+	
+	function crearImagen(mysqli $conn, Imagen $imagen) {
+		// Intentar ejecutar la consulta SQL para insertar la imagen
+		if ($conn->query($imagen->insert())) {
+			
+			return true;
+			
+		} else {
+			
+			return false;
+		}
+	}
+
+
+
+
+
+
 	
   
 ?>

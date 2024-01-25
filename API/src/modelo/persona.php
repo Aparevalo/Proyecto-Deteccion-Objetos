@@ -24,6 +24,8 @@ class Persona {
 		return $query;
 	}
 
+	//
+
 	public function update($id) {
 		$query = "UPDATE personas SET nombre = '$this->nombre', apellido = '$this->apellido, telefono = '$this->telefono' WHERE id = $id";
 		return $query; 

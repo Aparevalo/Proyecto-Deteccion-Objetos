@@ -22,7 +22,7 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['telefo
 
     $salt = bin2hex(random_bytes(16)); // Genera un "salt" de 16 bytes
     $hashedPassword = password_hash($contrasena . $salt, PASSWORD_BCRYPT);
-
+	
     // Crear el objeto Persona
     $persona = new Persona($nombre, $apellido, $telefono, 'user');
 
@@ -34,7 +34,7 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['telefo
 	} else {
 		echo json_encode(false);
 	}
-	
+-	
 	
 	// Desconectarse de la base de datos
 	$db->dbDisconnect();    
