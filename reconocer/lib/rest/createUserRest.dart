@@ -2,15 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:reconocer/modelo/personaModel.dart';
 
-
 class UserController {
-
-
   Future<bool> createUser(PersonaModel user) async {
     final response = await http.post(
-      Uri.parse('http://192.168.1.12:80/prueba_flutter/src/rest/createUser.php'),
+      Uri.parse(
+          'http://192.168.1.12:80/prueba_flutter/src/rest/createUser.php'),
       body: user.toJson(),
-      
     );
 
     if (response.statusCode == 200) {
@@ -22,7 +19,8 @@ class UserController {
 
   Future<bool> verificarCorreo(String correo) async {
     final response = await http.post(
-      Uri.parse('http://192.168.1.12:80/prueba_flutter/src/rest/verificarCorreo.php'),
+      Uri.parse(
+          'http://192.168.1.12:80/prueba_flutter/src/rest/verificarCorreo.php'),
       body: {'email': correo},
     );
 
@@ -33,9 +31,10 @@ class UserController {
     }
   }
 
-Future<bool> verificarTelefono(String telefono) async {
+  Future<bool> verificarTelefono(String telefono) async {
     final response = await http.post(
-      Uri.parse('http://192.168.1.12:80/prueba_flutter/src/rest/verificarTelefono.php'),
+      Uri.parse(
+          'http://192.168.1.12:80/prueba_flutter/src/rest/verificarTelefono.php'),
       body: {'telefono': telefono},
     );
 
@@ -45,5 +44,4 @@ Future<bool> verificarTelefono(String telefono) async {
       return false;
     }
   }
-
 }
